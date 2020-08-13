@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as PostsActions from '../../lib/+state/posts/posts.actions';
 
 @Component({
   selector: 'wordpress-posts-app-posts-container',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsContainerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.store.dispatch(PostsActions.loadPosts());
   }
 
 }
