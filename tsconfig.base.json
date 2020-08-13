@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@wordpress-posts-app/posts": ["libs/posts/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

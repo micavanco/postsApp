@@ -28,6 +28,9 @@
     "posts-app-e2e": {
       "tags": [],
       "implicitDependencies": ["posts-app"]
+    },
+    "posts": {
+      "tags": []
     }
   }
 }

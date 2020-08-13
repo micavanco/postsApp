@@ -25,8 +25,14 @@
               "apps/posts-app/src/favicon.ico",
               "apps/posts-app/src/assets"
             ],
-            "styles": ["apps/posts-app/src/styles.scss", "node_modules/bootstrap/dist/css/bootstrap.min.css"],
-            "scripts": ["node_modules/jquery/dist/jquery.min.js","node_modules/bootstrap/dist/js/bootstrap.min.js" ]
+            "styles": [
+              "apps/posts-app/src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -121,6 +127,38 @@
             "tsConfig": ["apps/posts-app-e2e/tsconfig.e2e.json"],
             "exclude": ["**/node_modules/**", "!apps/posts-app-e2e/**/*"]
           }
+        }
+      }
+    },
+    "posts": {
+      "projectType": "library",
+      "root": "libs/posts",
+      "sourceRoot": "libs/posts/src",
+      "prefix": "wordpress-posts-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/posts/tsconfig.lib.json",
+              "libs/posts/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/posts/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/posts/jest.config.js",
+            "tsConfig": "libs/posts/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/posts/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }
