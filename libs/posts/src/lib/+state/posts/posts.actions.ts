@@ -5,7 +5,7 @@ export const loadPosts = createAction('[Posts] Load Posts');
 
 export const loadPostsSuccess = createAction(
   '[Posts] Load Posts Success',
-  props<{ posts: PostsEntity[] }>()
+  props<{ posts: any }>()
 );
 
 export const loadPostsFailure = createAction(

@@ -11,7 +11,7 @@ export const getPostsState = createFeatureSelector<PostsPartialState, State>(
   POSTS_FEATURE_KEY
 );
 
-const { selectAll, selectEntities } = postsAdapter.getSelectors();
+const { selectAll } = postsAdapter.getSelectors();
 
 export const getPostsLoaded = createSelector(
   getPostsState,
@@ -27,8 +27,9 @@ export const getAllPosts = createSelector(getPostsState, (state: State) =>
   selectAll(state)
 );
 
-export const getPostsEntities = createSelector(getPostsState, (state: State) =>
-  selectEntities(state)
+export const getPostsData = createSelector(
+  getPostsState,
+  (state: State) => state.data
 );
 
 export const getSelectedId = createSelector(
@@ -37,7 +38,6 @@ export const getSelectedId = createSelector(
 );
 
 export const getSelected = createSelector(
-  getPostsEntities,
   getSelectedId,
   (entities, selectedId) => selectedId && entities[selectedId]
 );
