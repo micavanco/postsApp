@@ -27,9 +27,14 @@ export const getAllPosts = createSelector(getPostsState, (state: State) =>
   selectAll(state)
 );
 
-export const getPostsData = createSelector(
+export const getPosts = createSelector(
   getPostsState,
-  (state: State) => state.data
+  (state: State) => state.posts
+);
+
+export const getPostsFound = createSelector(
+  getPostsState,
+  (state: State) => state.postsFound
 );
 
 export const getSelectedId = createSelector(

@@ -10,7 +10,10 @@ export interface State extends EntityState<PostsEntity> {
   selectedId?: string | number; // which Posts record has been selected
   loaded: boolean; // has the Posts list been loaded
   error?: string | null; // last known error (if any)
-  data: object;
+  posts: object;
+  postsFound: number;
+  pageNumber: number;
+  tablePageNumber: number;
 }
 
 export interface PostsPartialState {
@@ -24,7 +27,10 @@ export const postsAdapter: EntityAdapter<PostsEntity> = createEntityAdapter<
 export const initialState: State = postsAdapter.getInitialState({
   // set initial required properties
   loaded: false,
-  data: null
+  posts: null,
+  postsFound: 0,
+  pageNumber: 0,
+  tablePageNumber: 0
 });
 
 const postsReducer = createReducer(
@@ -33,12 +39,14 @@ const postsReducer = createReducer(
     ...state,
     loaded: false,
     error: null,
-    data: null
+    posts: null,
+    postsFound: 0
   })),
-  on(PostsActions.loadPostsSuccess, (state, { posts }) =>
-    ({...state, loaded: true, error: null, data: posts})
+  on(PostsActions.loadPostsSuccess, (state, { data }) =>
+    ({...state, loaded: true, error: null, posts: data.posts, postsFound: data.found})
   ),
-  on(PostsActions.loadPostsFailure, (state, { error }) => ({ ...state, error }))
+  on(PostsActions.loadPostsFailure, (state, { error }) => ({ ...state, error })),
+  on(PostsActions.setTablePageNumber, (state, { tablePageNumber }) => ({ ...state, tablePageNumber }))
 );
 
 export function reducer(state: State | undefined, action: Action) {
