@@ -2,6 +2,9 @@
 
 Recruiting angular app to display WordPress user's posts.
 
+Application contains navigation bar and footer bar in main folder. Besides that it contains posts library that is lazy loaded and has dynamic routing with posts section and details section.
+State of application is managed by store.
+
 ## Development server
 
 Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
