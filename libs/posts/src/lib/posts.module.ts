@@ -30,7 +30,6 @@ const routes = [{ path: '', component: PostsContainerComponent }];
     PostDetailsComponent,
     NavBarComponent,
   ],
-  providers: [HttpClientModule, PostsService],
-  exports: [PostsContainerComponent],
+  providers: [HttpClientModule, PostsService]
 })
 export class PostsModule {}
