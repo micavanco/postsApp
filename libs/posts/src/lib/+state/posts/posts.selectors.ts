@@ -23,13 +23,14 @@ export const getPostsError = createSelector(
   (state: State) => state.error
 );
 
-export const getAllPosts = createSelector(getPostsState, (state: State) =>
-  selectAll(state)
-);
-
 export const getPosts = createSelector(
   getPostsState,
   (state: State) => state.posts
+);
+
+export const getTablePageNumber = createSelector(
+  getPostsState,
+  (state: State) => state.tablePageNumber
 );
 
 export const getPostsFound = createSelector(

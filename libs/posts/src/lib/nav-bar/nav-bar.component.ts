@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import * as PostsActions from '../../lib/+state/posts/posts.actions';
 import { getPostsFound } from '@wordpress-posts-app/posts';
 
 @Component({
@@ -20,6 +21,7 @@ export class NavBarComponent implements OnInit {
 
   onSelect(pageNumber: number) {
     this.currentPage = pageNumber;
+    this.store.dispatch(PostsActions.setTablePageNumber({tablePageNumber: pageNumber}));
     if (pageNumber > 1) {
       this.barNumbers = [];
       for (let i = -2; i < 3; i++) {

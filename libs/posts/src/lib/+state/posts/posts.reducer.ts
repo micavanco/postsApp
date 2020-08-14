@@ -10,7 +10,7 @@ export interface State extends EntityState<PostsEntity> {
   selectedId?: string | number; // which Posts record has been selected
   loaded: boolean; // has the Posts list been loaded
   error?: string | null; // last known error (if any)
-  posts: object;
+  posts: object[];
   postsFound: number;
   pageNumber: number;
   tablePageNumber: number;

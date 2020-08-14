@@ -1,5 +1,5 @@
 <div class="posts container-fluid">
   <wordpress-posts-app-nav-bar></wordpress-posts-app-nav-bar>
-  <p>posts-container works!</p>
+  <div *ngFor="let post of [0, 1, 2, 3, 4]; let index">{{this.posts[index + (pageNumber * 5)].title}}</div>
 </div>
 
