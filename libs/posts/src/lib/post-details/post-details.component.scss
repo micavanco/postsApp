@@ -1,0 +1,41 @@
+.container {
+  margin-top: 84px;
+  min-height: calc(100vh - 127px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exit {
+  margin-bottom: 30px;
+}
+
+.comments-container {
+  height: 150px;
+  max-width: 600px;
+  overflow-y: scroll;
+}
+
+
+  .post-detail {
+    height: 700px;
+    max-width: 600px;
+    margin: 5px;
+
+
+    &__title {
+      height: 72px;
+      overflow: hidden;
+    }
+  }
+
+
+
+.content {
+  height: 72px;
+  overflow: hidden;
+}
+
+.image {
+  height: 135px;
+}

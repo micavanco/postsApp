@@ -28,9 +28,9 @@ export const getPosts = createSelector(
   (state: State) => state.posts
 );
 
-export const getTablePageNumber = createSelector(
+export const getPageNumber = createSelector(
   getPostsState,
-  (state: State) => state.tablePageNumber
+  (state: State) => state.pageNumber
 );
 
 export const getPostsFound = createSelector(
@@ -43,7 +43,12 @@ export const getSelectedId = createSelector(
   (state: State) => state.selectedId
 );
 
-export const getSelected = createSelector(
-  getSelectedId,
-  (entities, selectedId) => selectedId && entities[selectedId]
+export const getSelectedPost = createSelector(
+  getPostsState,
+  (state: State) => state.post
+);
+
+export const getComments = createSelector(
+  getPostsState,
+  (state: State) => state.comments
 );

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'wordpress-posts-app-post-box',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-box.component.scss']
 })
 export class PostBoxComponent implements OnInit {
-
+  @Input() data;
   constructor() { }
 
   ngOnInit(): void {

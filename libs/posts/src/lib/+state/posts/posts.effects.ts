@@ -13,10 +13,34 @@ export class PostsEffects {
     this.actions$.pipe(
       ofType(PostsActions.loadPosts),
       withLatestFrom(this.store$),
-      mergeMap(([action, store]) => this.postsService.getAllPostsByPage(store.pageNumber)
+      mergeMap(([action, store]) => this.postsService.getAllPostsByPage(store.posts.pageNumber)
         .pipe(
           map(data => PostsActions.loadPostsSuccess({data})),
           catchError(error => of(PostsActions.loadPostsFailure({error})))
+        ))
+    )
+  );
+
+  loadPost$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PostsActions.loadPost),
+      withLatestFrom(this.store$),
+      mergeMap(([action, store]) => this.postsService.getPostById(store.posts.selectedId)
+        .pipe(
+          map(data => PostsActions.loadPostSuccess({data})),
+          catchError(error => of(PostsActions.loadPostFailure({error})))
+        ))
+    )
+  );
+
+  loadComments$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(PostsActions.loadComments),
+      withLatestFrom(this.store$),
+      mergeMap(([action, store]) => this.postsService.getComments(store.posts.selectedId)
+        .pipe(
+          map(data => PostsActions.loadCommentsSuccess({data})),
+          catchError(error => of(PostsActions.loadCommentsFailure({error})))
         ))
     )
   );

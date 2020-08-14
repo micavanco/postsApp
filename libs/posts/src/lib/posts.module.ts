@@ -12,7 +12,10 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PostsService } from './services/posts.service';
 
-const routes = [{ path: '', component: PostsContainerComponent }];
+const routes = [
+  { path: '', component: PostsContainerComponent },
+  { path: ':id', component: PostDetailsComponent }
+];
 
 @NgModule({
   imports: [

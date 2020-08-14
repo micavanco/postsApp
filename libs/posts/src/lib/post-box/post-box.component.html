@@ -1,1 +1,8 @@
-<p>post-box works!</p>
+<div class="card post">
+  <img src="{{data?.featured_image}}" class="card-img-top image" alt="...">
+  <div class="card-body">
+    <div [routerLink]="['', data?.ID]" class="card-title post__title">{{data?.title}}</div>
+    <p class="card-text content" [innerHTML]="data?.content"></p>
+    <a href="#" [routerLink]="['', data?.ID]" class="btn btn-primary">Open Post</a>
+  </div>
+</div>

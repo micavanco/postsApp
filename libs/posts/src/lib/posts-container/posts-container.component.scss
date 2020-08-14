@@ -1,6 +1,23 @@
 :host {
   .posts {
-    margin-top: 64px;
-    height: calc(100vh - 107px);
+    margin-top: 84px;
+    margin-bottom: 20px;
+    min-height: calc(100vh - 127px);
+
+    &__container {
+      margin-top: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__spinner {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
   }
 }

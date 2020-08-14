@@ -1,5 +1,14 @@
 <div class="posts container-fluid">
   <wordpress-posts-app-nav-bar></wordpress-posts-app-nav-bar>
-  <div *ngFor="let post of [0, 1, 2, 3, 4]; let index">{{this.posts[index + (pageNumber * 5)].title}}</div>
+  <div class="posts__container" *ngIf="didPostsLoaded">
+    <wordpress-posts-app-post-box *ngFor="let post of iterable; let index"
+                                  [data]="this.posts[index]">
+    </wordpress-posts-app-post-box>
+  </div>
+  <div class="posts__spinner">
+    <div class="spinner-border" role="status" *ngIf="!didPostsLoaded">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
 </div>
 

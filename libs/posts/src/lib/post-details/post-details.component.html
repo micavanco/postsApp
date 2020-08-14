@@ -1,1 +1,22 @@
-<p>post-details works!</p>
+<div class="container">
+  <div class="post-detail">
+    <button type="button" class="btn btn-primary exit" [routerLink]="['']">×</button>
+    <div class="card post">
+      <img src="{{post?.featured_image}}" class="card-img-top image" alt="...">
+      <div class="card-body">
+        <h5 class="card-title post__title">{{post?.title}}</h5>
+        <p class="card-text content" [innerHTML]="post?.content"></p>
+      </div>
+    </div>
+    <h3>Comments</h3>
+    <div class="comments-container">
+      <div class="card post" *ngFor="let comment of comments.comments">
+        <div class="card-body">
+          <h5 class="card-title post__title">Author: {{comment?.author?.name}}</h5>
+          <p class="card-text content" [innerHTML]="comment?.content"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

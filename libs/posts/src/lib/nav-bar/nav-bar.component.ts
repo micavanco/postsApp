@@ -16,12 +16,13 @@ export class NavBarComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
-    this.store.select(getPostsFound).subscribe(found => this.foundPosts = found/5);
+    this.store.select(getPostsFound).subscribe(found => this.foundPosts = found);
   }
 
   onSelect(pageNumber: number) {
     this.currentPage = pageNumber;
-    this.store.dispatch(PostsActions.setTablePageNumber({tablePageNumber: pageNumber}));
+    this.store.dispatch(PostsActions.setPageNumber({pageNumber: pageNumber}));
+    this.store.dispatch(PostsActions.loadPosts());
     if (pageNumber > 1) {
       this.barNumbers = [];
       for (let i = -2; i < 3; i++) {
